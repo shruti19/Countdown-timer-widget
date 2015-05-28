@@ -1,11 +1,11 @@
 
 $(document).ready(function(){
 
-		var finish = document.getElementById("date_reached");
-		var f= finish.getContext("2d");
+		var finish = $("#date_reached")[0];
+		var f = finish.getContext("2d");
 		f.beginPath();
-		f.font="30px Verdana";
-		var gradient=f.createLinearGradient(0,0,finish.width,0);
+		f.font = "30px Verdana";
+		var gradient = f.createLinearGradient(0,0,finish.width,0);
 		gradient.addColorStop("0","magenta");
 		gradient.addColorStop("0.5","blue");
 		gradient.addColorStop("1.0","red");
@@ -13,15 +13,15 @@ $(document).ready(function(){
 		f.fillStyle=gradient;
 		f.fillText("We Just Launched!",10,47);
 
-		var target_date = new Date("15 June 2015").getTime();
+		var target_date = new Date("Thu May 28 2015 17:47:54 GMT+0530 (IST)").getTime();
 		var days, hours, minutes, seconds;      
-		var cd = document.getElementById("days");
+		var cd = $("#days")[0];
 		var ctd = cd.getContext("2d");
-		var ch = document.getElementById("hours");
+		var ch = $("#hours")[0];
 		var cth = ch.getContext("2d");
-		var cm = document.getElementById("minutes");
+		var cm = $("#minutes")[0];
 		var ctm = cm.getContext("2d");
-		var cs = document.getElementById("seconds");
+		var cs = $("#seconds")[0];
 		var cts = cs.getContext("2d");
 		ctd.beginPath();
 		cth.beginPath();
@@ -30,11 +30,11 @@ $(document).ready(function(){
 
 	       
 	function drawTimer(canvas, max_limit, time_variable, str, border_color, fill_color, text_color, c){
-			c.width=c.width;
+			c.width = c.width;
 			//outer gray arc
 	    canvas.lineWidth = 14;
-			canvas.fillStyle="#d0d0d0";
-			canvas.strokeStyle="#d0d0d0";
+			canvas.fillStyle = "#d0d0d0";
+			canvas.strokeStyle = "#d0d0d0";
 			canvas.beginPath();
 			canvas.arc(50,50,40,0,2*Math.PI,true);
 		 	canvas.stroke();
@@ -48,19 +48,19 @@ $(document).ready(function(){
 			canvas.closePath();
 	 	 //inner white circle  
 		  canvas.beginPath();
-		  canvas.shadowBlur=5;
-		  canvas.shadowColor="black";
+		  canvas.shadowBlur = 5;
+		  canvas.shadowColor = "black";
 		  canvas.shadowOffsetX = 2;
 		  canvas.shadowOffsetY = 2;
 		  canvas.lineWidth = 1;
 			canvas.arc(50,50,32,0,2*Math.PI,true);
-			canvas.fillStyle=fill_color;
-			canvas.strokeStyle= fill_color;
+			canvas.fillStyle = fill_color;
+			canvas.strokeStyle = fill_color;
 		 	canvas.stroke();
 			canvas.fill();
 			canvas.closePath();
-			canvas.shadowBlur=0;
-			canvas.shadowColor=fill_color;
+			canvas.shadowBlur = 0;
+			canvas.shadowColor = fill_color;
 			//text	
 			canvas.beginPath();  			
 			canvas.lineWidth = 1;
@@ -71,7 +71,7 @@ $(document).ready(function(){
 	  	//canvas.strokeText(time_variable, 50, 40);
 			canvas.fillText(time_variable, 50, 50);
 			canvas.textAlign = 'center';
-			canvas.font="8px  Arial";
+			canvas.font = "8px Arial";
 	  	//canvas.strokeText(str, 30,)
 			canvas.fillText(str, 50, 65)
 	  	canvas.closePath();
@@ -114,8 +114,8 @@ $(document).ready(function(){
 	    seconds = parseInt(seconds_left % 60);
 		  if(seconds==0){
 	      if(days==0 && hours==0 && minutes==0){
-					document.getElementById("dials").style.display = "none";
-	        document.getElementById("date_reached").style.display = "block";
+					$("#dials").css('display', "none");
+	        $("#date_reached").css('display', "block");
 					clearInterval(interval);	
 	      }
 	      else { cs.width = cs.width; }
