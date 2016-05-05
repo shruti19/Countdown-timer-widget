@@ -115,6 +115,7 @@ $(document).ready(function(){
 		//SECONDS
 	  seconds = parseInt(seconds_left % 60);
 		if(seconds==0){
+		// Times up???
 	    if(days==0 && hours==0 && minutes==0){
 				$("#dials").css('display', "none");
 	      $("#date_reached").css('display', "block");
